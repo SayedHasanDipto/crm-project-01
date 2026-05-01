@@ -5,7 +5,7 @@ import { MongoClient } from "mongodb";
 const client = new MongoClient(process.env.MONGODB_URI!);
 
 export const auth = betterAuth({
-  database: mongodbAdapter(client.db("crm001")), emailAndPassword: {
+  database: mongodbAdapter(client.db(process.env.MONGODB_DB_NAME)), emailAndPassword: {
     enabled: true,
   },
   secret: process.env.BETTER_AUTH_SECRET!,
